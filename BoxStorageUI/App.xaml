@@ -1,0 +1,37 @@
+﻿<Application x:Class="BoxStorageUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BoxStorageUI"
+             xmlns:views="clr-namespace:BoxStorageUI.Views"
+             xmlns:vm="clr-namespace:BoxStorageUI.ViewModels"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/MenuButtonStyles.xaml"/>
+                <ResourceDictionary Source="Styles/TextboxStyle.xaml"/>
+                <ResourceDictionary Source="Styles/MainWindowButtonStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ListViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:BoxListViewModel}">
+                <views:BoxCardGridView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                <views:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BoxEditViewModel}">
+                <views:BoxEditView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AddNewBoxViewModel}">
+                <views:AddNewBoxView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:UserSettingsViewModel}">
+                <views:UserSettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:FindPresentViewModel}">
+                <views:FindPresentView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

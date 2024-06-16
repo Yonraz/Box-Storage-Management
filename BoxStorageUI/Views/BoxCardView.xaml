@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="BoxStorageUI.Views.BoxCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxStorageUI.Views" xmlns:viewmodels="clr-namespace:BoxStorageUI.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:BoxViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="130" MaxWidth="130" MinHeight="250" MaxHeight="250">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="/Fonts/REM/#REM"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Margin" Value="2 5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Cursor="Hand">
+        
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Border CornerRadius="10" Background="White" Grid.RowSpan="4" >
+            <Border.InputBindings>
+                <MouseBinding Gesture="LeftClick"
+                   Command="{Binding MoveToEditCommand}"
+                   CommandParameter="{Binding}"/>
+            </Border.InputBindings>
+            <Border CornerRadius="10" Grid.RowSpan="4">
+                <!-- border background-->
+                <Border.Background>
+                    <LinearGradientBrush x:Name="gradientBrush" StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop x:Name="colorOne" Color="#BEADFA" Offset="0"/>
+                        <GradientStop x:Name="colorTwo" Color="#BEADFA" Offset="0.1"/>
+                        <GradientStop x:Name="colorThree" Color="#D0BFFF" Offset="0.2"/>
+                        <GradientStop x:Name="colorFour" Color="#D0BFFF" Offset="0.3"/>
+                        <GradientStop x:Name="colorFive" Color="#DFCCFB" Offset="0.4"/>
+                        <GradientStop x:Name="colorSix" Color="#DFCCFB" Offset="0.5"/>
+                        <GradientStop x:Name="colorSeven" Color="#FFF3DA" Offset="0.9"/>
+                        <GradientStop x:Name="colorEight"  Color="#FFF3DA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Resources>
+                    <!--storyboards for mouse enter/leave-->
+                    <Storyboard x:Key="MouseEnterStoryboard">
+                        <ColorAnimation Storyboard.TargetName="colorOne" Storyboard.TargetProperty="Color" To="#ff8ebb" Duration="0:0:0.2"/>
+                        <ColorAnimation Storyboard.TargetName="colorTwo" Storyboard.TargetProperty="Color" To="#ff8ebb" Duration="0:0:0.3"/>
+                        <ColorAnimation Storyboard.TargetName="colorThree" Storyboard.TargetProperty="Color" To="#ffb2ad" Duration="0:0:0.4"/>
+                        <ColorAnimation Storyboard.TargetName="colorFour" Storyboard.TargetProperty="Color" To="#ffb2ad" Duration="0:0:0.5"/>
+                        <ColorAnimation Storyboard.TargetName="colorFive" Storyboard.TargetProperty="Color" To="#ffd8be" Duration="0:0:0.6"/>
+                        <ColorAnimation Storyboard.TargetName="colorSix" Storyboard.TargetProperty="Color" To="#ffd8be" Duration="0:0:0.7"/>
+                        <ColorAnimation Storyboard.TargetName="colorSeven" Storyboard.TargetProperty="Color" To="#fff8e9" Duration="0:0:0.8"/>
+                        <ColorAnimation Storyboard.TargetName="colorEight" Storyboard.TargetProperty="Color" To="#fff8e9" Duration="0:0:0.9"/>
+                    </Storyboard>
+                    <Storyboard x:Key="MouseLeaveStoryborad">
+                        <ColorAnimation Storyboard.TargetName="colorOne" Storyboard.TargetProperty="Color" To="#BEADFA" Duration="0:0:0.2"/>
+                        <ColorAnimation Storyboard.TargetName="colorTwo" Storyboard.TargetProperty="Color" To="#BEADFA" Duration="0:0:0.3"/>
+                        <ColorAnimation Storyboard.TargetName="colorThree" Storyboard.TargetProperty="Color" To="#D0BFFF" Duration="0:0:0.4"/>
+                        <ColorAnimation Storyboard.TargetName="colorFour" Storyboard.TargetProperty="Color" To="#D0BFFF" Duration="0:0:0.5"/>
+                        <ColorAnimation Storyboard.TargetName="colorFive" Storyboard.TargetProperty="Color" To="#DFCCFB" Duration="0:0:0.6"/>
+                        <ColorAnimation Storyboard.TargetName="colorSix" Storyboard.TargetProperty="Color" To="#DFCCFB" Duration="0:0:0.7"/>
+                        <ColorAnimation Storyboard.TargetName="colorSeven" Storyboard.TargetProperty="Color" To="#FFF3DA" Duration="0:0:0.8"/>
+                        <ColorAnimation Storyboard.TargetName="colorEight" Storyboard.TargetProperty="Color" To="#FFF3DA" Duration="0:0:0.9"/>
+                    </Storyboard>
+                </Border.Resources>
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="Border.MouseEnter">
+                        <BeginStoryboard Storyboard="{StaticResource MouseEnterStoryboard}"/>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Border.MouseLeave">
+                        <BeginStoryboard Storyboard="{StaticResource MouseLeaveStoryborad}"/>
+                    </EventTrigger>
+                </Border.Triggers>
+            </Border>
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Opacity="0.2" BlurRadius="5" ShadowDepth="3"/>
+            </Border.Effect>
+        </Border>
+
+        
+        <Image Source="/Icons/BoxIcon.png" 
+               Margin="5"  
+               Height="100" 
+               MaxHeight="100" 
+               Width="auto"/>
+            <TextBlock Grid.Row="1" 
+                   FontFamily="/Fonts/REM/#REM"
+                   Text="{Binding BoxName}" 
+                   FontSize="12" 
+                   HorizontalAlignment="Center" 
+                   Margin="5" Height="auto" 
+                   Width="auto" FontWeight="Bold"/>
+        <StackPanel Width="auto" Grid.Row="2" Margin="10">
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <TextBlock Text="Base: "
+                           FontFamily="/Fonts/REM/#REM"/>
+                <TextBlock Text="{Binding Width}"
+                           FontFamily="/Fonts/REM/#REM"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <TextBlock Text="Height: " 
+                           FontFamily="/Fonts/REM/#REM"/>
+                <TextBlock Text="{Binding Height}"  
+                           FontFamily="/Fonts/REM/#REM"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <TextBlock Text="Amount: " 
+                           FontFamily="/Fonts/REM/#REM"/>
+                <TextBlock Text="{Binding Amount}"  
+                           FontFamily="/Fonts/REM/#REM"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <TextBlock Text="Expired By: " 
+                           FontFamily="/Fonts/REM/#REM"/>
+                <TextBlock Text="{Binding ExipryDate}"
+                           FontFamily="/Fonts/REM/#REM"/>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

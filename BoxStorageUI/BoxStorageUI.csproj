@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Icons\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\box.png" />
+    <None Remove="Icons\BoxIcon.png" />
+    <None Remove="Icons\forklift-icon-6.jpg" />
+    <None Remove="Icons\ForkliftGif.gif" />
+    <None Remove="Icons\settings.png" />
+    <None Remove="Icons\settings2.png" />
+    <None Remove="Icons\wrench.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\box.png" />
+    <Resource Include="Icons\BoxIcon.png" />
+    <Resource Include="Icons\forklift-icon-6.jpg" />
+    <Resource Include="Icons\ForkliftGif.gif" />
+    <Resource Include="Icons\settings.png" />
+    <Resource Include="Icons\settings2.png" />
+    <Resource Include="Icons\wrench.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BoxStorage\BoxStorage.csproj" />
+  </ItemGroup>
+
+</Project>

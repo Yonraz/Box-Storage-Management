@@ -1,0 +1,145 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type TextBox}"
+           x:Key="CustomTextbox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10"
+                            Background="#353340"
+                            Width="250" Height="40">
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                                     Text="{TemplateBinding Text}"
+                                     FontFamily="/Fonts/REM/#REM"
+                                     BorderThickness="0"
+                                        Background="Transparent"
+                                         Foreground="#CFCFCF"
+                                     Padding="5"
+                                     VerticalAlignment="Center"
+                                     x:Name="SearchBox"/>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Search"
+                                       FontFamily="/Fonts/REM/#REM"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="10 0 0 0"
+                                       FontSize="11"
+                                       Foreground="DarkGray"
+                                       Grid.Column="1">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type TextBox}"
+       x:Key="CustomTextboxNumeric"
+           x:Name="xTextBoxNumeric">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10"
+                        Background="#353340"
+                        Width="120" Height="30">
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                                 Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}"
+                                 FontFamily="/Fonts/REM/#REM"
+                                 BorderThickness="0"
+                                    Background="Transparent"
+                                     Foreground="#CFCFCF"
+                                 Padding="5"
+                                 VerticalAlignment="Center"
+                                 x:Name="SearchBox"/>
+                            <TextBlock IsHitTestVisible="False"
+       Text="Enter Number"
+       FontFamily="/Fonts/REM/#REM"
+       VerticalAlignment="Center"
+       HorizontalAlignment="Left"
+       Margin="10 0 0 0"
+       FontSize="14"
+       Foreground="DarkGray"
+       Grid.Column="1">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type TextBox}"
+       x:Key="CustomTextboxSettings"
+           x:Name="textBoxSettings">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="0"
+                        Background="#353340"
+                        Width="200" Height="30">
+                        <Grid>
+                            <Rectangle StrokeThickness="1"/>
+                            <TextBox Margin="1"
+                                     Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}"
+                                     FontFamily="/Fonts/REM/#REM"
+                                     BorderThickness="0"
+                                        Background="Transparent"
+                                         Foreground="#CFCFCF"
+                                     Padding="5"
+                                     VerticalAlignment="Center"
+                                     x:Name="SearchBox"/>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Enter Number"
+                                       FontFamily="/Fonts/REM/#REM"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="10 0 0 0"
+                                       FontSize="14"
+                                       Foreground="DarkGray"
+                                       Grid.Column="1">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

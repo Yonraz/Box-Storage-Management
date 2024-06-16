@@ -1,0 +1,95 @@
+﻿<Window x:Class="BoxStorageUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:BoxStorageUI.ViewModels"
+        xmlns:local="clr-namespace:BoxStorageUI.Views" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <Border Background="#272537"
+            CornerRadius="20"
+            MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Box Storage" 
+                   FontSize="24" 
+                   Foreground="White" 
+                   FontFamily="/Fonts/REM/#REM"
+                   HorizontalAlignment="Left"
+                   Margin="20 0 0 0"
+                   VerticalAlignment="Center"/>
+            <StackPanel HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal"
+                        Grid.Column="1">
+                <Button Style="{StaticResource MinimizeBtn}"
+                        Click="ButtonMinimize_Click"/>
+                <Button Style="{StaticResource CloseBtn}"
+                        Click="ButtonClose_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <RadioButton
+                    Content="Home"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"
+                    Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding ShowHomeScreenCommand}"
+                    />
+                <RadioButton
+                    Content="Show Sizes"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"
+                    Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding ShowItemsCommand}"
+                    />
+                <RadioButton
+                    Content="Add New"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"
+                    Command="{Binding GoToAddCommand}"
+                    Style="{StaticResource MenuButtonTheme}"
+                    />
+                <RadioButton
+                    Content="Find Present"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"
+                    Command="{Binding GoToFindItemCommand}"
+                    Style="{StaticResource MenuButtonTheme}"
+                    />
+                <RadioButton
+                    Margin="0 200 0 0"
+                    VerticalAlignment="Bottom"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"
+                    Tag="/Icons/settings2.png"
+                    Command="{Binding GoToSettingsCommand}"
+                    Style="{StaticResource SettingsButtonTheme}" />
+            </StackPanel>
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Width="auto"
+                            Height="auto"
+                            HorizontalAlignment="Stretch"
+                            Content="{Binding CurrentViewModel}"/>
+        </Grid>
+    </Border>
+</Window>
